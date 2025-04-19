@@ -101,3 +101,50 @@ public class Main {
     }
 }
 ````
+
+3)Room Rating Tracker
+
+The system tracks the ratings given by students for the condition of their rooms after staying there for a semester. These ratings can be positive (indicating good condition) or negative (indicating poor condition).
+
+The maintenance team needs to focus on rooms with negative ratings. However, the system should not store negative ratings in the database but should instead convert those negative ratings into a positive score to indicate the magnitude of the problem for each room.
+
+🔧 Task:
+Write a function `update_room_ratings(ratings)` that takes a list of room ratings and returns a list where all negative ratings are replaced by their squares, while keeping the positive ratings unchanged.
+
+🔹 Test Case 01:
+Input:  [1, -4, 2, -8, 5]
+Output: [1, 16, 2, 64, 5]
+
+🔹 Test Case 02:
+Input:  [0, 5, 10]
+Output: [0, 5, 10]
+
+🔹 Test Case 03:
+Input:  [-9, -5, -7]
+Output: [81, 25, 49]
+
+### CODE
+````java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int a[] = new int[n];
+        
+        for(int i = 0; i < n; i++) {
+            a[i] = s.nextInt();
+        }
+        
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]<0)
+            {
+                a[i]=a[i]*a[i];
+            }
+        }
+        System.out.print(Arrays.toString(a));
+    }
+}
+````
