@@ -203,3 +203,71 @@ public class Main {
     }
 }
 ````
+5) You are given two lists of scores for students:
+
+One list contains midterm scores.
+
+The other contains final exam scores.
+
+Each student's final grade is calculated using the following formula:
+
+Midterm score contributes 40%.
+
+Final exam score contributes 60%.
+
+Write a function calculate_final_grades(midterm_scores, final_scores) that calculates the final grades for each student. The final result should be rounded to two decimal places.
+
+🧪 Test Cases:
+Test Case 01:
+
+Input:
+
+Midterm Scores: [50, 70, 90]
+
+Final Exam Scores: [60, 80, 100]
+
+Output:
+[55.0, 75.0, 95.0]
+
+Test Case 02:
+
+Input:
+
+Midterm Scores: [95, 88]
+
+Final Exam Scores: [70, 77]
+
+Output:
+[80.0, 80.4]
+
+### CODE
+````JAVA
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        double a[] = new double[n];
+        
+        for(int i = 0; i < n; i++) {
+            a[i] = s.nextInt();
+        }
+        double b[] = new double[n];
+        
+        for(int i = 0; i < n; i++) {
+            b[i] = s.nextInt();
+        }
+        
+        double final_mark[] = new double[n];
+        
+        
+        for(int i = 0; i < n; i++) {
+            final_mark[i] = (a[i]*0.4) +(b[i]*0.6);
+        }
+        
+                for(int i=0;i<n;i++)
+                System.out.printf("%.2f ",final_mark[i]);
+    }
+}
+````
