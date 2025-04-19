@@ -148,3 +148,58 @@ public class Main {
     }
 }
 ````
+4) Supermarket App: Cart Total Calculator
+
+The person using the supermarket app needs to calculate the total cost of the items in a user's shopping cart after applying some discount rules.
+
+The shopping cart is represented as an array of item prices.
+
+💸 Discount Rules:
+1. If the price of an item is greater than 50, a discount of 10% is applied to that item.
+2. If the total cost of the cart exceeds 200, an additional 5% discount is applied to the entire cart.
+
+✏️ Task:
+Write a function calculate_cart_total(cart) that calculates the final total after applying the discounts.
+
+🔹 Test Case 01:
+Input:  [100, 50, 75, 30]
+Output: 276.25
+
+🔹 Test Case 02:
+Input:  [10, 20, 30, 50]
+Output: 110
+
+🔹 Test Case 03:
+Input:  [150, 100, 200]
+Output: 400
+
+### CODE
+
+````JAVA
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        double a[] = new double[n];
+        
+        for(int i = 0; i < n; i++) {
+            a[i] = s.nextInt();
+        }
+        
+        double t = 0;  
+        
+        for (int i = 0; i < n; i++) {
+            if (a[i] > 50) {
+                a[i] = a[i] * 0.9; 
+            }
+            t += a[i];  
+        }
+                if (t > 200) {
+            t *= 0.95;
+        }
+                System.out.printf("%.2f", t);
+    }
+}
+````
