@@ -1,6 +1,6 @@
 
 
-✈️ Airline's Maintenance System
+1) Airline's Maintenance System
 
 After every flight, seats with even-numbered seat IDs need to be flagged for special
 cleaning due to proximity to air vents. The system receives a list of seat numbers that
