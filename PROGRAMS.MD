@@ -271,3 +271,39 @@ public class Main {
     }
 }
 ````
+6) Day 50 - Problem Solving for the day - 19.04.2025
+
+Rotate array k times to the left
+
+Input: [1, 2, 3, 4], k = 2
+
+Output: [3, 4, 1, 2]
+
+````java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int a[]=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=s.nextInt();
+        }
+        
+        int k=s.nextInt();
+        k=k%n;
+        int rotate[]=new int[n];
+        
+        for(int i=0;i<n-k;i++){
+            rotate[i]=a[i+k];
+        }
+        
+        for(int i=0;i<k;i++){
+            rotate[n-k+i]=a[i];
+        }
+                System.out.printf(Arrays.toString(rotate));
+    }
+}
+
+````
