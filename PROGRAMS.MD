@@ -1,33 +1,24 @@
 
 
-1) Airline's Maintenance System
 
-After every flight, seats with even-numbered seat IDs need to be flagged for special
-cleaning due to proximity to air vents. The system receives a list of seat numbers that
-were occupied during the flight.
+---
 
-To help the cleaning crew, you must replace every even seat number in the list with 0
-to indicate that those seats need to be cleaned.
+### ✈️ Airline's Maintenance System
 
-🔹 Test case 01 :
-Input: [2, 4, 6, 8]
-Output: [0, 0, 0, 0]
+> Seats with even-numbered seat IDs need special cleaning. Replace all even numbers with `0`.
 
-🔹 Test case 02 :
-Input: [12, 13, 14]
-Output: [0, 13, 0]
+**Test Cases:**
+- Input: `[2, 4, 6, 8]` → Output: `[0, 0, 0, 0]`
+- Input: `[12, 13, 14]` → Output: `[0, 13, 0]`
 
-
-### CODE
-
-````JAVA
+```java
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
-        int a[] = new int[n];
+        int[] a = new int[n];
 
         for (int i = 0; i < n; i++) {
             a[i] = s.nextInt();
@@ -42,290 +33,233 @@ public class Main {
         System.out.println(Arrays.toString(a));
     }
 }
+```
 
-````
-2)Top Two Unique Scores
+---
 
-A teacher wants to reward the top two scoring students in a test. Given the list of
-scores, find the two highest unique scores.
+### 🏅 Top Two Unique Scores
 
-Write a function top_two_scores(scores) that returns the two highest unique scores.
+> Return the two highest unique scores from a list.
 
-🔹 Test Case 01:
-Input: [88, 95, 70, 95, 60]
-Output: [95, 88]
+**Test Cases:**
+- `[88, 95, 70, 95, 60]` → `[95, 88]`
+- `[85, 85, 85]` → `[85]`
+- `[76]` → `[76]`
+- `[91, 91, 89, 89, 88]` → `[91, 89]`
 
-🔹 Test Case 02:
-Input: [85, 85, 85]
-Output: [85]
-
-🔹 Test Case 03:
-Input: [76]
-Output: [76]
-
-🔹 Test Case 04:
-Input: [91, 91, 89, 89, 88]
-Output: [91, 89]
-
-### CODE
-````java
+```java
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
-        int a[] = new int[n];
-        
-        for(int i = 0; i < n; i++) {
+        int[] a = new int[n];
+
+        for (int i = 0; i < n; i++) {
             a[i] = s.nextInt();
         }
-        
+
         Arrays.sort(a);
-        
-        int temp[] = new int[n];
+        int[] temp = new int[n];
         int j = 0;
-        for(int i = 0; i < n; i++) {
-            if(i == 0 || a[i] != a[i-1]) {
+
+        for (int i = 0; i < n; i++) {
+            if (i == 0 || a[i] != a[i - 1]) {
                 temp[j++] = a[i];
             }
         }
-        
-        if(j >= 2) {
-            System.out.println("[" + temp[j-1] + ", " + temp[j-2] + "]");
-        } else if(j == 1) {
+
+        if (j >= 2) {
+            System.out.println("[" + temp[j - 1] + ", " + temp[j - 2] + "]");
+        } else if (j == 1) {
             System.out.println("[" + temp[0] + "]");
         } else {
             System.out.println("[]");
         }
     }
 }
-````
+```
 
-3)Room Rating Tracker
+---
 
-The system tracks the ratings given by students for the condition of their rooms after staying there for a semester. These ratings can be positive (indicating good condition) or negative (indicating poor condition).
+### 🧹 Room Rating Tracker
 
-The maintenance team needs to focus on rooms with negative ratings. However, the system should not store negative ratings in the database but should instead convert those negative ratings into a positive score to indicate the magnitude of the problem for each room.
+> Convert negative room ratings to their square (to represent issue severity). Leave positives unchanged.
 
-🔧 Task:
-Write a function `update_room_ratings(ratings)` that takes a list of room ratings and returns a list where all negative ratings are replaced by their squares, while keeping the positive ratings unchanged.
+**Test Cases:**
+- `[1, -4, 2, -8, 5]` → `[1, 16, 2, 64, 5]`
+- `[0, 5, 10]` → `[0, 5, 10]`
+- `[-9, -5, -7]` → `[81, 25, 49]`
 
-🔹 Test Case 01:
-Input:  [1, -4, 2, -8, 5]
-Output: [1, 16, 2, 64, 5]
-
-🔹 Test Case 02:
-Input:  [0, 5, 10]
-Output: [0, 5, 10]
-
-🔹 Test Case 03:
-Input:  [-9, -5, -7]
-Output: [81, 25, 49]
-
-### CODE
-````java
+```java
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
-        int a[] = new int[n];
-        
-        for(int i = 0; i < n; i++) {
+        int[] a = new int[n];
+
+        for (int i = 0; i < n; i++) {
             a[i] = s.nextInt();
         }
-        
-        for(int i=0;i<n;i++)
-        {
-            if(a[i]<0)
-            {
-                a[i]=a[i]*a[i];
+
+        for (int i = 0; i < n; i++) {
+            if (a[i] < 0) {
+                a[i] = a[i] * a[i];
             }
         }
-        System.out.print(Arrays.toString(a));
+
+        System.out.println(Arrays.toString(a));
     }
 }
-````
-4) Supermarket App: Cart Total Calculator
+```
 
-The person using the supermarket app needs to calculate the total cost of the items in a user's shopping cart after applying some discount rules.
+---
 
-The shopping cart is represented as an array of item prices.
+### 🛒 Supermarket App: Cart Total Calculator
 
-💸 Discount Rules:
-1. If the price of an item is greater than 50, a discount of 10% is applied to that item.
-2. If the total cost of the cart exceeds 200, an additional 5% discount is applied to the entire cart.
+> Apply discounts based on individual item price and total cart cost.
 
-✏️ Task:
-Write a function calculate_cart_total(cart) that calculates the final total after applying the discounts.
+**Discount Rules:**
+1. 10% off items > 50
+2. Additional 5% off cart if total > 200
 
-🔹 Test Case 01:
-Input:  [100, 50, 75, 30]
-Output: 276.25
+**Test Cases:**
+- `[100, 50, 75, 30]` → `276.25`
+- `[10, 20, 30, 50]` → `110.0`
+- `[150, 100, 200]` → `400.0`
 
-🔹 Test Case 02:
-Input:  [10, 20, 30, 50]
-Output: 110
-
-🔹 Test Case 03:
-Input:  [150, 100, 200]
-Output: 400
-
-### CODE
-
-````JAVA
+```java
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
-        double a[] = new double[n];
-        
-        for(int i = 0; i < n; i++) {
-            a[i] = s.nextInt();
+        double[] a = new double[n];
+
+        for (int i = 0; i < n; i++) {
+            a[i] = s.nextDouble();
         }
-        
-        double t = 0;  
-        
+
+        double total = 0;
+
         for (int i = 0; i < n; i++) {
             if (a[i] > 50) {
-                a[i] = a[i] * 0.9; 
+                a[i] *= 0.9;
             }
-            t += a[i];  
+            total += a[i];
         }
-                if (t > 200) {
-            t *= 0.95;
+
+        if (total > 200) {
+            total *= 0.95;
         }
-                System.out.printf("%.2f", t);
+
+        System.out.printf("%.2f", total);
     }
 }
-````
-5) You are given two lists of scores for students:
+```
 
-One list contains midterm scores.
+---
 
-The other contains final exam scores.
+### 🎓 Final Grade Calculator
 
-Each student's final grade is calculated using the following formula:
+> Combine midterm and final exam scores: 40% midterm + 60% final.
 
-Midterm score contributes 40%.
+**Test Cases:**
+- `[50, 70, 90]`, `[60, 80, 100]` → `[55.0, 75.0, 95.0]`
+- `[95, 88]`, `[70, 77]` → `[80.0, 80.4]`
 
-Final exam score contributes 60%.
-
-Write a function calculate_final_grades(midterm_scores, final_scores) that calculates the final grades for each student. The final result should be rounded to two decimal places.
-
-🧪 Test Cases:
-Test Case 01:
-
-Input:
-
-Midterm Scores: [50, 70, 90]
-
-Final Exam Scores: [60, 80, 100]
-
-Output:
-[55.0, 75.0, 95.0]
-
-Test Case 02:
-
-Input:
-
-Midterm Scores: [95, 88]
-
-Final Exam Scores: [70, 77]
-
-Output:
-[80.0, 80.4]
-
-### CODE
-````JAVA
+```java
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
-        double a[] = new double[n];
-        
-        for(int i = 0; i < n; i++) {
+        double[] mid = new double[n];
+        double[] fin = new double[n];
+        double[] finalGrades = new double[n];
+
+        for (int i = 0; i < n; i++) {
+            mid[i] = s.nextDouble();
+        }
+
+        for (int i = 0; i < n; i++) {
+            fin[i] = s.nextDouble();
+        }
+
+        for (int i = 0; i < n; i++) {
+            finalGrades[i] = mid[i] * 0.4 + fin[i] * 0.6;
+        }
+
+        for (int i = 0; i < n; i++) {
+            System.out.printf("%.2f ", finalGrades[i]);
+        }
+    }
+}
+```
+
+---
+
+### 🔄 Rotate Array Left
+
+> Rotate an array `k` times to the left.
+
+**Test Case:**  
+- Input: `[1, 2, 3, 4]`, `k = 2` → Output: `[3, 4, 1, 2]`
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int[] a = new int[n];
+
+        for (int i = 0; i < n; i++) {
             a[i] = s.nextInt();
         }
-        double b[] = new double[n];
-        
-        for(int i = 0; i < n; i++) {
-            b[i] = s.nextInt();
+
+        int k = s.nextInt();
+        k = k % n;
+
+        int[] rotated = new int[n];
+
+        for (int i = 0; i < n - k; i++) {
+            rotated[i] = a[i + k];
         }
-        
-        double final_mark[] = new double[n];
-        
-        
-        for(int i = 0; i < n; i++) {
-            final_mark[i] = (a[i]*0.4) +(b[i]*0.6);
+
+        for (int i = 0; i < k; i++) {
+            rotated[n - k + i] = a[i];
         }
-        
-                for(int i=0;i<n;i++)
-                System.out.printf("%.2f ",final_mark[i]);
+
+        System.out.println(Arrays.toString(rotated));
     }
 }
-````
-6) Day 50 - Problem Solving for the day - 19.04.2025
+```
 
-Rotate array k times to the left
+---
 
-Input: [1, 2, 3, 4], k = 2
+### 📦 Equal Shelf Split Checker
 
-Output: [3, 4, 1, 2]
+> Can you split the shelf weights into two parts with equal sums?
 
-````java
+**Test Cases:**
+- `[1, 2, 3, 4, 6]` → `true`
+- `[1, 2, 3]` → `false`
+
+```java
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
-        int a[]=new int[n];
-        for(int i=0;i<n;i++){
-            a[i]=s.nextInt();
-        }
-        
-        int k=s.nextInt();
-        k=k%n;
-        int rotate[]=new int[n];
-        
-        for(int i=0;i<n-k;i++){
-            rotate[i]=a[i+k];
-        }
-        
-        for(int i=0;i<k;i++){
-            rotate[n-k+i]=a[i];
-        }
-                System.out.printf(Arrays.toString(rotate));
-    }
-}
-
-````
-7) *A warehouse has multiple shelves represented by an array of weights.You must
-determine if you can split the array into two parts with equal sum.
-You're given an array of integers, where each element represents the weight on a
-shelf.You need to determine if it's possible to split the array into two parts such that
-the sum of the weights in both parts is equal.
-
-Sample Input 01 :
-int[] shelves = {1, 2, 3, 4, 6}
-Sample Input 02 :
-int[] shelves = {1, 2, 3}*
-
-````java
-import java.util.*;
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        int n = s.nextInt();
-        int a[] = new int[n];
+        int[] a = new int[n];
 
         for (int i = 0; i < n; i++) {
             a[i] = s.nextInt();
@@ -336,12 +270,10 @@ public class Main {
         for (int i = 0; i < n - 1; i++) {
             int sum1 = 0;
             int sum2 = 0;
-            for (int j = 0; j <= i; j++) {
-                sum1 += a[j];
-            }
-            for (int j = i + 1; j < n; j++) {
-                sum2 += a[j];
-            }
+
+            for (int j = 0; j <= i; j++) sum1 += a[j];
+            for (int j = i + 1; j < n; j++) sum2 += a[j];
+
             if (sum1 == sum2) {
                 canSplit = true;
                 break;
@@ -351,41 +283,40 @@ public class Main {
         System.out.println(canSplit);
     }
 }
-````
-8)You’re tracking the prices of items added to the cart. Sometimes users add the same
-product multiple times.
-Our Task is to find the below:
-Find the total cost of items.
-Remove duplicates and display a summary of unique prices.
-Sort the prices in descending order.
-Sample Input 01 :
-int[] prices = {150, 150, 150, 150};
-Sample Input 02 :
-int[] prices = {999, 499, 799, 199, 499, 999, 199};
+```
 
+---
 
-````java
+### 🛍️ Cart Price Tracker
+
+> Track total cost, remove duplicates, and sort unique prices in descending order.
+
+**Test Cases:**
+- `[150, 150, 150, 150]` → Total: 600, Unique: `[150]`
+- `[999, 499, 799, 199, 499, 999, 199]` → Total: 4194, Unique: `[999, 799, 499, 199]`
+
+```java
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        
-        System.out.print("Enter the number of elements: ");
+
         int n = s.nextInt();
-        
-        int a[] = new int[n];
-        System.out.print("Enter the elements: ");
+        int[] a = new int[n];
+
         for (int i = 0; i < n; i++) {
             a[i] = s.nextInt();
         }
+
         int total = 0;
-        for (int i = 0; i < n; i++) {
-            total += a[i];
+        for (int value : a) {
+            total += value;
         }
+
         System.out.println("The Total is: " + total);
 
-        Arrays.sort(a); 
+        Arrays.sort(a);
         ArrayList<Integer> unique = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
@@ -394,10 +325,11 @@ public class Main {
             }
         }
 
-        System.out.println("Unique prices: " + unique);
-        Collections.sort(unique);
-        Collections.reverse(unique);
+        Collections.sort(unique, Collections.reverseOrder());
         System.out.println("Unique prices in Descending Order: " + unique);
     }
 }
-````
+```
+
+---
+
