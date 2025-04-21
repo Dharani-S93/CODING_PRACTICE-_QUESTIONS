@@ -307,7 +307,7 @@ public class Main {
 }
 
 ````
-7) /*A warehouse has multiple shelves represented by an array of weights.You must
+7) */A warehouse has multiple shelves represented by an array of weights.You must
 determine if you can split the array into two parts with equal sum.
 You're given an array of integers, where each element represents the weight on a
 shelf.You need to determine if it's possible to split the array into two parts such that
@@ -315,7 +315,7 @@ the sum of the weights in both parts is equal.
 Sample Input 01 :
 int[] shelves = {1, 2, 3, 4, 6}
 Sample Input 02 :
-int[] shelves = {1, 2, 3}*/
+int[] shelves = {1, 2, 3}/*
 
 ````java
 import java.util.*;
