@@ -312,6 +312,7 @@ determine if you can split the array into two parts with equal sum.
 You're given an array of integers, where each element represents the weight on a
 shelf.You need to determine if it's possible to split the array into two parts such that
 the sum of the weights in both parts is equal.
+
 Sample Input 01 :
 int[] shelves = {1, 2, 3, 4, 6}
 Sample Input 02 :
