@@ -307,3 +307,49 @@ public class Main {
 }
 
 ````
+7) Problem Solving for the day - 11.04.2025
+A warehouse has multiple shelves represented by an array of weights.You must
+determine if you can split the array into two parts with equal sum.
+You're given an array of integers, where each element represents the weight on a
+shelf.You need to determine if it's possible to split the array into two parts such that
+the sum of the weights in both parts is equal.
+Sample Input 01 :
+int[] shelves = {1, 2, 3, 4, 6}
+Sample Input 02 :
+int[] shelves = {1, 2, 3}
+
+````java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int a[] = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            a[i] = s.nextInt();
+        }
+
+        boolean canSplit = false;
+
+        for (int i = 0; i < n - 1; i++) {
+            int sum1 = 0;
+            int sum2 = 0;
+            for (int j = 0; j <= i; j++) {
+                sum1 += a[j];
+            }
+            for (int j = i + 1; j < n; j++) {
+                sum2 += a[j];
+            }
+            if (sum1 == sum2) {
+                canSplit = true;
+                break;
+            }
+        }
+
+        System.out.println(canSplit);
+    }
+}
+````
+
