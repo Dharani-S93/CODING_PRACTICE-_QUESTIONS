@@ -352,4 +352,52 @@ public class Main {
     }
 }
 ````
+8)You’re tracking the prices of items added to the cart. Sometimes users add the same
+product multiple times.
+Our Task is to find the below:
+Find the total cost of items.
+Remove duplicates and display a summary of unique prices.
+Sort the prices in descending order.
+Sample Input 01 :
+int[] prices = {150, 150, 150, 150};
+Sample Input 02 :
+int[] prices = {999, 499, 799, 199, 499, 999, 199};
 
+
+````java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        
+        System.out.print("Enter the number of elements: ");
+        int n = s.nextInt();
+        
+        int a[] = new int[n];
+        System.out.print("Enter the elements: ");
+        for (int i = 0; i < n; i++) {
+            a[i] = s.nextInt();
+        }
+        int total = 0;
+        for (int i = 0; i < n; i++) {
+            total += a[i];
+        }
+        System.out.println("The Total is: " + total);
+
+        Arrays.sort(a); 
+        ArrayList<Integer> unique = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            if (i == 0 || a[i] != a[i - 1]) {
+                unique.add(a[i]);
+            }
+        }
+
+        System.out.println("Unique prices: " + unique);
+        Collections.sort(unique);
+        Collections.reverse(unique);
+        System.out.println("Unique prices in Descending Order: " + unique);
+    }
+}
+````
