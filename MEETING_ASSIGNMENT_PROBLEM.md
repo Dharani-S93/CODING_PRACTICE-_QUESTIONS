@@ -53,3 +53,29 @@ public class Main {
 
 ### OUPUT
 ````JAVA
+
+ENTER N VALUE: 
+6
+ENTER START VALUES: 
+1
+2 3
+0
+5
+
+8
+5
+ENTER END VALUES: 
+2
+4
+5
+7
+9
+9
+Selected Meetings:
+1 2
+3 4
+5 7
+8 9
+The number of meetings is: 4
+
+````
