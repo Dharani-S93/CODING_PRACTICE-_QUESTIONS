@@ -30,15 +30,15 @@ public class Main {
         Arrays.sort(meetings, (a, b) -> end[a] - end[b]);
 
         int count = 1;
-        int lastEnd = end[meetings[0]];
+        int last = end[meetings[0]];
 
         System.out.println("Selected Meetings:");
         System.out.println(start[meetings[0]] + " " + end[meetings[0]]);
 
         for (int i = 1; i < n; i++) {
-            if (start[meetings[i]] >= lastEnd) {
+            if (start[meetings[i]] >= last) {
                 System.out.println(start[meetings[i]] + " " + end[meetings[i]]);
-                lastEnd = end[meetings[i]];
+                last = end[meetings[i]];
                 count++;
             }
         }
